@@ -1,4 +1,20 @@
 <?php
+/**
+ * 
+ * Hola! Soy Validator, y solamente instancio objetos que validan. Quiza me 
+ * recuerden de peliculas como "Si sos menor no pasas" o "Buenas noches, 
+ * documentos".
+ * 
+ * De momento solamente tengo un metodo publico, validate() (cuack), que
+ * recibe datos y devuelve un array de errores. Toda la logica de ahi adentro
+ * ya la vieron durante 21mil minutos (literalmente) o quiza mas, asi que no 
+ * voy a agregar nada nuevo.
+ * 
+ * Sayonara!
+ * 
+ * 
+ */
+
 
 class Validator
 {

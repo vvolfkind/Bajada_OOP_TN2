@@ -1,18 +1,43 @@
 <?php
-
+// Mi loader con todos los require necesarios.
 require 'loader.php';
 
+// Declaro $errors como array vacio, 
+// si mas adelante se llena con algo se muestra
 $errors = array();
 
 if($_POST) {
+// Si entro a este IF, voy a igualar mi array VACIO $errors, a lo que sea
+// que me devuelve el objeto $validator (instanciado en loader.php), haciendo
+// uso de su metodo publico validate()
     $errors = $validator->validate($_POST);
     if(count($errors) == 0) {
+        // Si entro aca es porque el array $errors NO TIENE algun error
         $userArray = $factory->create($_POST);
+        // $userArray es una variable. Que voy a meter en esa variable?
+        // lo que sea que devuelve mi amigo $factory haciendo uso de su metodo
+        // publico create(). Nosotros ya sabemos que ese metodo devuelve un
+        // array, asi que lo "esperamos" y pasamos al proximo paso
         $db->save($userArray);
+        // Aca no igualamos nada a nadie con nada de nadie. Solamente
+        // ejecutamos el metodo publico save() que pertenece a nuestro amigo
+        // $db. $db es lo que nosotros conocemos como base de datos al dia de
+        // hoy. Solamente graba en un archivo JSON.
         redirect('login.php');
+        // helper para no tener que escribir header location exit blabla...
 
+
+        /**
+         * Aca termino el bloque del IF
+         * 
+         */
     }
 
+
+
+    // Si $errors tenia algun error, nunca entre al IF anterior,
+    // por lo cual PHP sigue de largo pero con $errors conteniendo
+    // lo que sea que devolvio mi objeto amiguero $validator
 
 }
 ?>
@@ -35,6 +60,7 @@ if($_POST) {
   <body>
     <div class="container">
     <h1 class="text-center">Registrate!</h1>
+    <!-- Todo esto ya se vio en php estructurado -->
     <?php if(count($errors) > 0):?>
     <ul class="col-md-6 offset-md-3">
         <?php foreach($errors as $error): ?>
