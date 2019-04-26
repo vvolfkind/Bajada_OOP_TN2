@@ -23,6 +23,12 @@ function check($email)
     return isset($_SESSION[$email]);
 }
 
+function guest()
+{
+    !check();
+}
+
+
 
 
 
