@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Hola si bueno soy la clase DBJSON. Extiendo a Database, que es mi vieja, 
+ * y basicamente estoy condicionado a moverme por la vida como me dice ella.
+ * 
+ * Puedo agregar mis propios metodos pero si o si tengo que implementar los
+ * que herede, si no papa PHP me la pudre.
+ * 
+ */
+
 class DBJSON extends Database
 {
     private $file;
