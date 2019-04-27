@@ -2,21 +2,21 @@
 
 class Validator
 {
-    public function validate($data)
+    public function validate(User $user, string $cpassword = "")
     {
         $errors = array();
 
-        if($data['email'] == "") {
+        if($user->getEmail() == "") {
             $errors['email'] = "Capo, me dejaste el email vacio";
-        } else if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        } else if(!filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = "Crack el email no es valido";
         }
 
-        if($data['password'] == "") {
+        if($user->getPassword() == "") {
             $errors['password'] = "Capo, me dejaste el password vacio";
-        }else if(strlen($data['password']) < 6) {
+        }else if(strlen($user->getPassword()) < 6) {
             $errors['password'] = "Maquina, el pass tiene que ser mayor a 6 digitos";
-        } else if( $data['password'] !== $data['cpassword']) {
+        } else if( $cpassword !== "" && $user->getPassword() !== $cpassword) {
             $errors['cpassword'] = "Idolo, las pass no coinciden";
         }
 

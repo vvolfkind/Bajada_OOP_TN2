@@ -5,10 +5,13 @@ require 'loader.php';
 $errors = array();
 
 if($_POST) {
-    $errors = $validator->validate($_POST);
+
+    $user = new User($_POST['email'], $_POST['password']);
+
+    $errors = $validator->validate($user, $_POST['cpassword']);
 
     if(count($errors) == 0) {
-        $userArray = $factory->create($_POST);
+        $userArray = $factory->create($user);
         $db->save($userArray);
 
         redirect('login.php');

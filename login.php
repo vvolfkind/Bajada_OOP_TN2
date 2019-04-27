@@ -1,5 +1,13 @@
 <?php
+require 'loader.php';
 
+if($_POST) {
+    $user = new User($_POST['email'], $_POST['password']);
+    $errors = $validator->validate($user);
+    if(count($errors) == 0) {
+        
+    }
+}
 
 ?>
 

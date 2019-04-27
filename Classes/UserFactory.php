@@ -2,11 +2,11 @@
 
 class UserFactory
 {
-    public function create($data)
+    public function create(User $user)
     {
         $userArray = [
-            'email' => $data['email'],
-            'password' => password_hash($data['password'], PASSWORD_DEFAULT)
+            'email' => $user->getEmail(),
+            'password' => HashPassword::hash($user->getPassword())
         ];
 
         return $userArray;

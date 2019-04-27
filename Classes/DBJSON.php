@@ -27,7 +27,15 @@ class DBJSON extends Database
 
     public function read()
     {
+        $results = array();
+        $explodes = explode(PHP_EOL, file_get_contents($this->file));
+        array_pop($explodes);
 
+        foreach($explodes as $explode) {
+            $results[] = json_decode($explode, true);
+        }
+
+        return $results;
     }
 
 
