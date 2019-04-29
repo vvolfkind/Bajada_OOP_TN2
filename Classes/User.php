@@ -1,15 +1,4 @@
 <?php
-/**
- * 
- * Esta es la clase User, que determina puntualmente los datos necesarios
- * y excluyentes para tener un objeto del tipo usuario merodeando por mi 
- * sistema.
- * 
- * No es responsabilidad del mismo validar esos datos necesarios, por ende
- * necesitamos un objeto que tenga la misma. Ese objeto sale de la clase
- * Validator.
- * 
- */
 
 class User
 {
