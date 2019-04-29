@@ -7,6 +7,9 @@ require 'Classes/Database.php';
 require 'Classes/DBJSON.php';
 require 'Classes/HashPassword.php';
 require 'Classes/User.php';
+require 'Classes/Session.php';
+
+Session::start();
 
 $validator = new Validator();
 $factory = new UserFactory();
