@@ -1,5 +1,5 @@
 <?php
-
+//var_dump($_SESSION, $_COOKIE);
 ?>
 
 <!DOCTYPE html>

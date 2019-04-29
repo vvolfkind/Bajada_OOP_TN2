@@ -9,20 +9,23 @@ class DBJSON extends Database
         $this->file = $file;
     }
 
+    public function search($email)
+    {
+        $database = $this->read();
+        foreach($database as $user) {
+            if($user['email'] == $email) {
+                return $user;
+            }
+        }
+
+        return false;
+
+    }
+
     public function save($userArray)
     {
         $user = json_encode($userArray);
         file_put_contents($this->file, $user . PHP_EOL, FILE_APPEND);
-    }
-
-    public function update()
-    {
-        
-    }
-
-    public function delete()
-    {
-
     }
 
     public function read()
@@ -36,6 +39,16 @@ class DBJSON extends Database
         }
 
         return $results;
+    }
+
+    public function update()
+    {
+        //...
+    }
+
+    public function delete()
+    {
+        //...
     }
 
 

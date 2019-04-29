@@ -11,4 +11,19 @@ class Session
             self::$isSessionStarted = true;
         }
     }
+
+    static public function set($key, $value)
+    {   dd($_SESSION);
+        $_SESSION[$key] = $value;
+    }
+
+    static public function get($key)
+    {
+        //$_SESSION[$key] ?? false;
+        if($_SESSION[$key]) {
+            return $_SESSION[$key];
+        }
+
+        return false;
+    }
 }

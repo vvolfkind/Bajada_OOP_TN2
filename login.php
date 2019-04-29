@@ -5,7 +5,14 @@ if($_POST) {
     $user = new User($_POST['email'], $_POST['password']);
     $errors = $validator->validate($user);
     if(count($errors) == 0) {
-        session_start();
+        $result = $db->search($user->getEmail());
+        if($result) {
+            if($auth->validatePassword($user->getPassword(), $result['password'])){
+                dd($user);
+                $auth->login($user->getEmail());
+                redirect('profile.php');
+            }
+        }
     }
 }
 

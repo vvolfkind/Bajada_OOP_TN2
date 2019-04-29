@@ -18,9 +18,9 @@ function redirect($location)
     exit;
 }
 
-function check($email)
+function check()
 {
-    return isset($_SESSION[$email]);
+    return isset($_SESSION['email']);
 }
 
 function guest()
