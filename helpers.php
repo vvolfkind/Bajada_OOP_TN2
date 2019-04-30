@@ -25,7 +25,7 @@ function check()
 
 function guest()
 {
-    !check();
+    return !check();
 }
 
 

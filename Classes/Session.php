@@ -13,7 +13,7 @@ class Session
     }
 
     static public function set($key, $value)
-    {   dd($_SESSION);
+    {
         $_SESSION[$key] = $value;
     }
 
@@ -25,5 +25,13 @@ class Session
         }
 
         return false;
+    }
+
+    static public function destroy()
+    {
+        if(!self::$isSessionStarted) {
+            session_start();
+        }
+        session_destroy();
     }
 }

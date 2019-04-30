@@ -2,15 +2,21 @@
 
 class Auth
 {
-    public function login($user)
+    public function login($email)
     {
-        Session::set('email', $user['email']);
-        //dd($_SESSION);
-        Cookie::set('email', $user['email'], 3600);
+        Session::set('email', $email);
+        Cookie::set('email', $email, 3600);
     }
 
     public function validatePassword($password, $hash)
     {
         return password_verify($password, $hash);
+    }
+
+    public function logout()
+    {
+        if(!$_SESSION) {
+            
+        }
     }
 }

@@ -1,5 +1,12 @@
 <?php
-//var_dump($_SESSION, $_COOKIE);
+require 'loader.php';
+
+if(guest()) {
+    redirect('login.php');
+}
+
+$user = $_SESSION['email'];
+
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +16,7 @@
     <div class="container">
         <?php require'navbar.php'; ?>
         <div class="row">
-            <h1 class="text-center">Registrate!</h1>
+            <h1 class="text-center">Bienvenido <?=$user ?></h1>
         </div>  
     <div class="row">
 </body>

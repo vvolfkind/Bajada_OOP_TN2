@@ -8,7 +8,7 @@ if($_POST) {
         $result = $db->search($user->getEmail());
         if($result) {
             if($auth->validatePassword($user->getPassword(), $result['password'])){
-                dd($user);
+                //dd('ENTRE');
                 $auth->login($user->getEmail());
                 redirect('profile.php');
             }
@@ -23,7 +23,7 @@ if($_POST) {
     <?php require 'head.php'; ?>
     <body>
         <div class="container">
-            <h1 class="text-center">Registrate!</h1>
+            <h1 class="text-center">Login!</h1>
             <form action="" method="post" class="col-md-6 offset-md-3">
                 <div class="form-group">
                     <label for="email">Email address</label>
