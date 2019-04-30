@@ -14,7 +14,7 @@ $user = $_SESSION['email'];
 <?php require 'head.php'; ?>
 <body>
     <div class="container">
-        <?php require'navbar.php'; ?>
+        <?php require 'navbar.php'; ?>
         <div class="row">
             <h1 class="text-center">Bienvenido <?=$user ?></h1>
         </div>  
