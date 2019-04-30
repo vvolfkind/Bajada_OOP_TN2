@@ -19,7 +19,17 @@ class Validator
         } else if( $cpassword !== "" && $user->getPassword() !== $cpassword) {
             $errors['cpassword'] = "Idolo, las pass no coinciden";
         }
+        if(isset($_FILES)) {
+            if(!$this->validateAvatar()) {
+                $errors['image'] = "Imagen no valida";
+            }
+        }
 
         return $errors;
+    }
+
+    private function validateAvatar($file)
+    {
+
     }
 }
