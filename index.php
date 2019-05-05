@@ -22,7 +22,7 @@ setcookie('CookieMonster', $cookie, time() + 3600);
 
 
 
-dd($_SESSION);
+//dd($_SESSION);
 
 ?>
 
