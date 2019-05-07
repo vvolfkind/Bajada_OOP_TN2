@@ -4,7 +4,15 @@ require 'loader.php';
 $errors = array();
 
 if($_POST) {
+    $avatar = null;
     $user = new User($_POST['email'], $_POST['password']);
+
+    if ($_FILES['avatar']) {
+        $avatar = $_FILES;
+        $file = $db->saveAvatar($avatar, $user);
+        $user->setAvatar($file);
+    }
+
     $errors = $validator->validate($user, $_POST['cpassword']);
 
     if(count($errors) == 0) {
@@ -35,7 +43,7 @@ if($_POST) {
                 <?php endforeach;?>
             </ul>
             <?php endif;?>
-            <form action="" method="post" class="col-md-6 offset-md-3">
+            <form action="" method="post" class="col-md-6 offset-md-3" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" name="email">
@@ -43,6 +51,10 @@ if($_POST) {
                 <?php if(isset($errors['email'])):?>
                 <span class="alert alert-danger"> <?=$errors['email'] ?></span>
                 <?php endif;?>
+                <div class="form-group">
+                    <label for="avatar">Avatar</label>
+                    <input type="file" class="form-control" name="avatar" value="">
+                </div>
                 <div class="form-group">
                     <label for="">Password</label>
                     <input type="password" class="form-control" name="password">

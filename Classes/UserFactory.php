@@ -6,7 +6,8 @@ class UserFactory
     {
         $userArray = [
             'email' => $user->getEmail(),
-            'password' => HashPassword::hash($user->getPassword())
+            'password' => HashPassword::hash($user->getPassword()),
+            'avatar' => null
         ];
 
         return $userArray;

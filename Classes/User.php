@@ -4,6 +4,7 @@ class User
 {
     private $email;
     private $password;
+    private $avatar = null;
 
     public function __construct(string $email, string $password)
     {
@@ -29,6 +30,18 @@ class User
     public function setPassword(string $password): void
     {
         $this->password = $password;
+
+    }
+
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
 
     }
 }

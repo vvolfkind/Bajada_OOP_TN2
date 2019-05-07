@@ -20,7 +20,7 @@ class Validator
             $errors['cpassword'] = "Idolo, las pass no coinciden";
         }
         if(isset($_FILES)) {
-            if(!$this->validateAvatar()) {
+            if(!$this->validateAvatar($_FILES)) {
                 $errors['image'] = "Imagen no valida";
             }
         }
@@ -30,6 +30,6 @@ class Validator
 
     private function validateAvatar($file)
     {
-
+        return true;
     }
 }
